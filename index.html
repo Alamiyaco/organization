@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الهيكل الإداري</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="brand-mark">AR</div>
+      <div>
+        <h1>الهيكل الإداري</h1>
+        <p>مخطط هرمي تفاعلي حسب الأقسام مع توضيح التبعية الإدارية والمدير المباشر</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="toolbar glass">
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="ابحث عن موظف، منصب، مدير..." autocomplete="off" />
+      </div>
+      <select id="departmentFilter"><option value="">كل الأقسام</option></select>
+      <select id="branchFilter"><option value="">كل أماكن العمل</option></select>
+      <button id="expandAllBtn" type="button">فتح الكل</button>
+      <button id="collapseAllBtn" type="button">إغلاق الكل</button>
+      <button id="resetBtn" type="button" class="primary">إعادة ضبط</button>
+    </section>
+
+    <section class="summary-grid" id="summary"></section>
+
+    <section class="top-section glass" id="topSection"></section>
+
+    <section class="departments-shell" id="departments"></section>
+    <section id="emptyState" class="empty hidden">لا توجد نتائج مطابقة للبحث الحالي.</section>
+  </main>
+
+  <template id="employeeCardTemplate">
+    <div class="node-card">
+      <div class="avatar" aria-hidden="true">👤</div>
+      <div class="node-main">
+        <div class="node-head">
+          <h3></h3>
+          <span class="branch-badge"></span>
+        </div>
+        <p class="position"></p>
+        <p class="manager-line"></p>
+      </div>
+      <button class="node-toggle" type="button" title="فتح / إخفاء التابعين">⌄</button>
+      <span class="child-count"></span>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
